@@ -100,6 +100,16 @@ Reduces the number of features while retaining most of the variance, simplifying
 
 4. Consider ethical implications, ensuring predictions do not reinforce biases, particularly when sensitive attributes (e.g., neighborhood demographics) could influence results.
 
+### Expected Results
+
+1. Gradient Boosting and Random Forest models are expected to outperform linear regression due to their ability to capture nonlinear interactions and complex feature relationships.
+
+
+2. Adding unsupervised features from PCA and clustering is expected to improve predictive accuracy relative to using only raw property features.
+
+
+3. Outlier detection and handling will likely reduce RMSE by removing mislabeled or extreme-value records that could skew model predictions.
+
 
 
 
