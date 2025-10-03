@@ -117,9 +117,17 @@ Reduces the number of features while retaining most of the variance, simplifying
 - [2] A. Ihre and I. Engström, *Predicting House Prices with Machine Learning Methods*, Examensarbete inom teknik, Grundnivå, 15 HP, School of Electrical Engineering and Computer Science, KTH, Stockholm, Sweden, 2019.  
 - [3] Q. Truong, M. Nguyen, H. Dang, and B. Mei, “Housing Price Prediction via Improved Machine Learning Techniques,” *Procedia Computer Science*, vol. 174, pp. 433–442, 2020, doi: 10.1016/j.procs.2020.06.111.
 
+---
 
+## Gantt Chart & Contributions
 
+https://docs.google.com/spreadsheets/d/1sEn3y5obKaQtLnEJNnsmjzddWluIJcmOrhaOsC1w4q8/edit?usp=sharing
 
-
-
+| Name      | Proposal Contributions |
+|-----------|-------------------------|
+| Aditya Sriram   | Problem Definition, GitHub Page  |
+| Soham Pati      | Methods, Dataset |
+| Blake Alford    | Literature Review, Gantt Chart |
+| Erik Larson     | Youtube Video, Results |
+| Eric Joseph     | Youtube Video, Methods |
 
