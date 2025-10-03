@@ -1,4 +1,4 @@
-# ML Project Proposal: House Price Prediction  
+# ML Project Proposal: House Price Prediction in Southern California 
 
 ### Group 118  
 **Aditya Sriram, Soham Pati, Blake Alford, Erik Larson, Eric Joseph**
@@ -7,13 +7,13 @@
 
 ## 1. Introduction / Background 
 
-The real estate market in Southern California is always changing and one of the most expensive markets in the country. Home prices can change quickly because of high demand, low supply along with differences from neighborhood to neighborhood. Predicting those prices becomes difficult, as there are so many factors influencing these values such as location, number of bedrooms and bathrooms, lot size, square footage, and proximity to amenities and major employment centers. 
+The real estate market in Southern California is always changing and one of the most expensive markets in the country. Home prices vary because of high demand and low supply. Predicting those prices becomes difficult, as there are so many factors influencing these values such as location, number of bedrooms and bathrooms, lot size, square footage, and proximity to amenities and major employment centers. 
 
 ### Dataset Description 
 
-Our dataset is from kaggle and contains over 15000 house prices and data. For each house we keep track of the address and city that the house is from. We also keep track of the number of rooms, bathrooms and square feet of said house.
+Our dataset contains over 15000 house prices and data. For each house we keep track of the address and city. As well as the number of rooms, bathrooms and square feet.
 
-LINK FOR DATASET : https://www.kaggle.com/datasets/ted8080/house-prices-and-images-socal/code
+LINK: https://www.kaggle.com/datasets/ted8080/house-prices-and-images-socal/code
 
 ### Literature Review
 
@@ -24,7 +24,7 @@ LINK FOR DATASET : https://www.kaggle.com/datasets/ted8080/house-prices-and-imag
 
 **Problem:** Are we able to utilize historical property data from 2021 to then create machine learning models to predict the price of a home based on property features?
 
-**Motivation:**  Housing affordability is one of the biggest issues in all of Southern California. Creating accurate price prediction models could help buyers figure out fair and proper housing market values, help realtors and real estate professionals and firms in their selling and price strategies and also support lawmakers and politicians in creating proper legislation using housing market trends.
+**Motivation:**  Housing affordability is one of the biggest issues in all of Southern California. Creating accurate price prediction models could help buyers figure out fair market values, help realtors with price strategies and also support lawmakers in creating proper legislation using market trends.
 
 ---
 
@@ -32,9 +32,8 @@ LINK FOR DATASET : https://www.kaggle.com/datasets/ted8080/house-prices-and-imag
 
 ### Data Preprocessing 
 
-We will apply these preprocessing techniques:
-1. **Missing value imputation:** sklearn.impute.SimpleImputer(strategy="median") for numeric, SimpleImputer(strategy="most_frequent") for categorical. This will ensure that data that is missing values or data that is skewed due to very strong outliers will not mess up the data and categorically this will ensure that filling missing values with the mode will avoid data loss.
-2. **Feature Engineering:** We can add features for half baths, and also for other important metrics like price per square foot, sqaure foot per room, etc. This will also allow us to convert our data like where it says 2.2 in bathrooms and represent it as 2 full bath, 2 half bath. This way our data makes more sense and can be understood better.
+1. **Missing value imputation:** sklearn.impute.SimpleImputer(strategy="median") for numeric, SimpleImputer(strategy="most_frequent") for categorical. This will ensure that data that is missing values or data that is skewed is not lost.
+2. **Feature Engineering:** We can add features for half baths, and also for other important metrics like price per square foot, sqaure foot per room, etc. This will also allow us to convert our data so it more sense and can be understood better.
 3. **Categorical encoding:** sklearn.preprocessing.OneHotEncoder(handle_unknown='ignore'). For features which are categorical(city, etc.) we will transform it into a numerical representation. This will alow for models like linear regression to treat cities like different entities without a ranking or order.
 4. **Pipelining:** sklearn.pipeline.Pipeline to combine transforms + models for reproducibility and grid search. We can chain together the above preprocessing steps into one pipeline for easy accessibility and convenient runs.
 
@@ -84,7 +83,7 @@ Reduces the number of features while retaining most of the variance, simplifying
 
 1. **Silhouette Score:** Evaluates clustering quality by measuring how similar each data point is to its own cluster compared to other clusters. Higher scores indicate well-separated, distinct clusters.
 
-2. **Explained Variance Ratio (for PCA):** Quantifies how much of the dataset’s total variance is captured by the selected principal components, helping assess the effectiveness of dimensionality reduction.
+2. **Explained Variance Ratio (for PCA):** Quantifies how much of the dataset’s total variance is captured by the selected principal components, helping assess dimensionality reduction effectiveness.
 
 
 ### Project Goals 
@@ -92,13 +91,13 @@ Reduces the number of features while retaining most of the variance, simplifying
 1. Achieve RMSE within 10–15% of the average house price in the dataset, indicating practical predictive accuracy.
 
 
-2. Demonstrate that unsupervised features (e.g., cluster labels, PCA components, outlier flags) enhance supervised regression performance by providing additional structured information.
+2. Demonstrate that unsupervised features enhance supervised regression performance by providing additional structured information.
 
 
-3. Assess model interpretability, identifying key drivers of price such as square footage, number of bedrooms, and neighborhood cluster segments.
+3. Assess model interpretability, identifying key drivers of price such as sqft, bedrooms, and neighborhood cluster segments.
 
 
-4. Consider ethical implications, ensuring predictions do not reinforce biases, particularly when sensitive attributes (e.g., neighborhood demographics) could influence results.
+4. Consider ethical implications, ensuring predictions do not reinforce biases, particularly when sensitive attributes (e.g., demographics) could influence results.
 
 ### Expected Results
 
