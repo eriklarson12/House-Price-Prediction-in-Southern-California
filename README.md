@@ -87,6 +87,20 @@ Reduces the number of features while retaining most of the variance, simplifying
 2. **Explained Variance Ratio (for PCA):** Quantifies how much of the dataset’s total variance is captured by the selected principal components, helping assess the effectiveness of dimensionality reduction.
 
 
+### Project Goals 
+
+1. Achieve RMSE within 10–15% of the average house price in the dataset, indicating practical predictive accuracy.
+
+
+2. Demonstrate that unsupervised features (e.g., cluster labels, PCA components, outlier flags) enhance supervised regression performance by providing additional structured information.
+
+
+3. Assess model interpretability, identifying key drivers of price such as square footage, number of bedrooms, and neighborhood cluster segments.
+
+
+4. Consider ethical implications, ensuring predictions do not reinforce biases, particularly when sensitive attributes (e.g., neighborhood demographics) could influence results.
+
+
 
 
 
