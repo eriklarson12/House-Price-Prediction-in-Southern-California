@@ -36,9 +36,33 @@ We will apply these preprocessing techniques:
 1. **Missing value imputation:** sklearn.impute.SimpleImputer(strategy="median") for numeric, SimpleImputer(strategy="most_frequent") for categorical. This will ensure that data that is missing values or data that is skewed due to very strong outliers will not mess up the data and categorically this will ensure that filling missing values with the mode will avoid data loss.
 2. **Feature Engineering:** We can add features for half baths, and also for other important metrics like price per square foot, sqaure foot per room, etc. This will also allow us to convert our data like where it says 2.2 in bathrooms and represent it as 2 full bath, 2 half bath. This way our data makes more sense and can be understood better.
 3. **Categorical encoding:** sklearn.preprocessing.OneHotEncoder(handle_unknown='ignore'). For features which are categorical(city, etc.) we will transform it into a numerical representation. This will alow for models like linear regression to treat cities like different entities without a ranking or order.
-4. **Pipelining:** klearn.pipeline.Pipeline to combine transforms + models for reproducibility and grid search. We can chain together the above preprocessing steps into one pipeline for easy accessibility and convenient runs.
+4. **Pipelining:** sklearn.pipeline.Pipeline to combine transforms + models for reproducibility and grid search. We can chain together the above preprocessing steps into one pipeline for easy accessibility and convenient runs.
 
 ### Machine Learning Models 
+
+## Regression (Supervised)
+**Model/Algorithm:** Linear Regression (`sklearn.linear_model.LinearRegression`)  
+A simple model that predicts housing prices as a weighted combination of input features, assuming a linear relationship.
+
+## Ensemble Learning (Supervised)
+**Model/Algorithm:** Random Forest Regressor (`sklearn.ensemble.RandomForestRegressor`)  
+An ensemble of decision trees that averages their predictions to capture nonlinear relationships and reduce overfitting.
+
+## Gradient Boosting (Supervised)
+**Model/Algorithm:** XGBoost Regressor (`xgboost.XGBRegressor`)  
+A gradient boosting model that builds trees sequentially to correct previous errors, often achieving high accuracy on structured data.
+
+## Clustering (Unsupervised)
+**Model/Algorithm:** K-Means (`sklearn.cluster.KMeans`)  
+Groups houses into clusters based on similarity of features, helping identify natural market segments.
+
+## Density-Based Clustering (Unsupervised)
+**Model/Algorithm:** DBSCAN (`sklearn.cluster.DBSCAN`)  
+Finds clusters of homes based on density, capturing irregularly shaped neighborhoods or sparse vs. dense regions.
+
+## Dimensionality Reduction (Unsupervised)
+**Model/Algorithm:** Principal Component Analysis (PCA) (`sklearn.decomposition.PCA`)  
+Reduces the number of features while retaining most of the variance, simplifying the dataset and highlighting key patterns.
 
 
 
