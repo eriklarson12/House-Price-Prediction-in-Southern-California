@@ -16,7 +16,9 @@ Our dataset contains over 15000 house prices and data. For each house we keep tr
 LINK: https://www.kaggle.com/datasets/ted8080/house-prices-and-images-socal/code
 
 ### Literature Review
-Supervised regression and ensemble methods properly predict housing prices. Ihre and Engström [2] found Random Forest outperformed k-NN, while Truong [3] showed combining traditional and advanced models improves accuracy. Earlier work shows evaluation metrics for regression [1]. Most studies focus on numeric features, rarely using unsupervised methods like clustering or PCA to detect patterns and outliers. Our project uses this to predict Southern California housing prices accurately.
+Prior research has explored ML approaches for predicting housing prices. Ihre and Engström [2] found Random Forest outperformed k-Nearest Neighbors on the Ames dataset, while Truong et al. [3] showed combining traditional and ensemble methods improves accuracy when features are carefully selected.
+These studies focus on numeric and structural features and rarely use unsupervised techniques. Clustering and PCA can reveal latent structures, like neighborhood clusters or price bands, enhancing predictions [2], [3]. Outlier detection can further improve accuracy. Our project integrates these insights into a supervised pipeline to predict Southern California housing prices using the 2021 Kaggle dataset [1], aiming for higher accuracy and interpretable key price drivers.
+
 
 
 ---
