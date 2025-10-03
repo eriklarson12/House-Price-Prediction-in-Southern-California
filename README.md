@@ -65,6 +65,26 @@ Finds clusters of homes based on density, capturing irregularly shaped neighborh
 Reduces the number of features while retaining most of the variance, simplifying the dataset and highlighting key patterns.
 
 
+---
+
+## 4. Potential Results and Discussion 
+
+### Quantitative Metrics
+
+**Supervised Metrics:**
+1. **Root Mean Squared Error (RMSE)** [1]: Measures the square root of the average squared difference between predicted and actual prices. RMSE penalizes larger errors more heavily, making it useful for identifying significant mispredictions in housing prices.
+
+
+2. **Mean Absolute Error (MAE):** Calculates the average absolute difference between predicted and actual prices. MAE is more interpretable and less sensitive to outliers, providing a complementary perspective to RMSE.
+
+
+3. **R² Score:** Represents the proportion of variance in the target variable explained by the model. Higher values indicate better model fit and predictive power.
+
+**Unsupervised Learning Metrics:**
+
+1. **Silhouette Score:** Evaluates clustering quality by measuring how similar each data point is to its own cluster compared to other clusters. Higher scores indicate well-separated, distinct clusters.
+
+2. **Explained Variance Ratio (for PCA):** Quantifies how much of the dataset’s total variance is captured by the selected principal components, helping assess the effectiveness of dimensionality reduction.
 
 
 
