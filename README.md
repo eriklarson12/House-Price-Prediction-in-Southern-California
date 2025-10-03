@@ -126,7 +126,7 @@ https://docs.google.com/spreadsheets/d/1sEn3y5obKaQtLnEJNnsmjzddWluIJcmOrhaOsC1w
 | Name      | Proposal Contributions |
 |-----------|-------------------------|
 | Aditya Sriram   | Problem Definition, GitHub Page  |
-| Soham Pati      | Methods, Dataset |
+| Soham Pati      | Methods, Dataset, Results |
 | Blake Alford    | Literature Review, Gantt Chart |
 | Erik Larson     | Youtube Video, Results |
 | Eric Joseph     | Youtube Video, Methods |
