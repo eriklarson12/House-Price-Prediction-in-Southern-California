@@ -47,25 +47,7 @@ These studies focus on numeric and structural features and rarely use unsupervis
 **Model/Algorithm:** Linear Regression (`sklearn.linear_model.LinearRegression`)  
 A simple model that predicts housing prices as a weighted combination of input features, assuming a linear relationship.
 
-**Ensemble Learning (Supervised)**
-**Model/Algorithm:** Random Forest Regressor (`sklearn.ensemble.RandomForestRegressor`)  
-An ensemble of decision trees that averages their predictions to capture nonlinear relationships and reduce overfitting.
 
-**Gradient Boosting (Supervised)**
-**Model/Algorithm:** XGBoost Regressor (`xgboost.XGBRegressor`)  
-A gradient boosting model that builds trees sequentially to correct previous errors, often achieving high accuracy on structured data.
-
-**Clustering (Unsupervised)**
-**Model/Algorithm:** K-Means (`sklearn.cluster.KMeans`)  
-Groups houses into clusters based on similarity of features, helping identify natural market segments.
-
-**Density-Based Clustering (Unsupervised)**
-**Model/Algorithm:** DBSCAN (`sklearn.cluster.DBSCAN`)  
-Finds clusters of homes based on density, capturing irregularly shaped neighborhoods or sparse vs. dense regions.
-
-**Dimensionality Reduction (Unsupervised)**
-**Model/Algorithm:** Principal Component Analysis (PCA) (`sklearn.decomposition.PCA`)  
-Reduces the number of features while retaining most of the variance, simplifying the dataset and highlighting key patterns.
 
 
 ---
