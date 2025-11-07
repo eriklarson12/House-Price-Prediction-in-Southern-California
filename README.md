@@ -119,7 +119,7 @@ Our Linear Regression model was built using seven features: sqft_living, bedroom
 The bath_to_bed_ratio feature gave a large negative coefficient ($-265,859.88), which at first seems counterintuitive, as more bathrooms typically add value. This result is explained by multicollinearity between the ratio and the individual bedroom and bathroom counts. When those features are held constant, an increase in the ratio often reflects fewer bedrooms rather than more bathrooms, leading to the lower predicted price.
 
 
-Overall, the model provides a clear, interpretable baseline that confirms the linear relationships between home attributes and sale prices. However, the moderate R² score and large residuals strongly suggest that the data contains nonlinear trends and feature interactions that a simple linear model cannot capture.
+Overall, the model provides a clear, interpretable baseline that confirms the linear relationships between home attributes and sale prices. However, the moderate R² score and large residuals strongly suggest that the data contains nonlinear trends and feature interactions that a simple linear model cannot capture. We had hoped for a R score value of 0.7 or higher to suggest linear correlation but since the score did not show that it just means that this model is not the right fit got it.
 
 **Next Steps**
 
