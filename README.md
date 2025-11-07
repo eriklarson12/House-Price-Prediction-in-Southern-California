@@ -102,46 +102,28 @@ This summarizes the model's performance by comparing the training (blue) and tes
 
 ### Quantitative Metrics
 
-**Quantitative Metrics:**
-1. **Root Mean Squared Error (RMSE)** [1]: Measures the square root of the average squared difference between predicted and actual prices. RMSE penalizes larger errors more heavily, making it useful for identifying significant mispredictions in housing prices.
+**Root Mean Squared Error (RMSE)**: The RMSE measures the average magnitude of prediction errors in the same units as the target variable (price). Our model produced an RMSE of $309,313.21. This metric is measured in the same units as the target (price), so this gives an average prediction deviation of $309K. This figure represents approximately 43.7% of the average home price in the dataset.
 
 
-2. **Mean Absolute Error (MAE):** Calculates the average absolute difference between predicted and actual prices. MAE is more interpretable and less sensitive to outliers, providing a complementary perspective to RMSE.
+**Mean Absolute Error (MAE)**: The model's MAE was $228,128.65, meaning the typical absolute error between a prediction and the actual sale price is $228K. While this figure is high, it was anticipated given the dataset's wide range of prices and significant market variability.
 
 
-3. **R² Score:** Represents the proportion of variance in the target variable explained by the model. Higher values indicate better model fit and predictive power.
+**R² Score**: The model achieved an R² value of 0.3509, meaning it explains about 35% of the variance in home prices. This is a moderate score because it indicates the model has captured some core linear relationships, but it is not yet accounting for other complex factors, such as nonlinear trends or location-based data, which are missing from the current feature set.
 
-**Unsupervised Learning Metrics:**
-
-1. **Silhouette Score:** Evaluates clustering quality by measuring how similar each data point is to its own cluster compared to other clusters. Higher scores indicate well-separated, distinct clusters.
-
-2. **Explained Variance Ratio (for PCA):** Quantifies how much of the dataset’s total variance is captured by the selected principal components, helping assess dimensionality reduction effectiveness.
+### Deeper Analysis of Linear Regression
 
 
-### Project Goals 
-
-1. Achieve RMSE within 10–15% of the average house price in the dataset, indicating practical predictive accuracy.
+Our Linear Regression model was built using seven features: sqft_living, bedrooms, bathrooms, city, sqft_per_room, total_rooms, and bath_to_bed_ratio. As expected, square footage showed the strongest positive correlation with price, confirming that larger homes command higher prices. The city feature was also a significant driver, highlighting strong regional differences in value.
 
 
-2. Demonstrate that unsupervised features enhance supervised regression performance by providing additional structured information.
+The bath_to_bed_ratio feature gave a large negative coefficient ($-265,859.88), which at first seems counterintuitive, as more bathrooms typically add value. This result is explained by multicollinearity between the ratio and the individual bedroom and bathroom counts. When those features are held constant, an increase in the ratio often reflects fewer bedrooms rather than more bathrooms, leading to the lower predicted price.
 
 
-3. Assess model interpretability, identifying key drivers of price such as sqft, bedrooms, and neighborhood cluster segments.
+Overall, the model provides a clear, interpretable baseline that confirms the linear relationships between home attributes and sale prices. However, the moderate R² score and large residuals strongly suggest that the data contains nonlinear trends and feature interactions that a simple linear model cannot capture.
 
+**Next Steps**
 
-4. Consider ethical implications, ensuring predictions do not reinforce biases, particularly when sensitive attributes (e.g., demographics) could influence results.
-
-### Expected Results
-
-1. Gradient Boosting and Random Forest models are expected to outperform linear regression due to their ability to capture nonlinear interactions and complex feature relationships.
-
-
-2. Adding unsupervised features from PCA and clustering is expected to improve predictive accuracy relative to using only raw property features.
-
-
-3. Outlier detection and handling will likely reduce RMSE by removing mislabeled or extreme-value records that could skew model predictions.
-
----
+Moving forward, we plan to explore Ridge and Lasso Regression to help reduce multicollinearity. We will also test tree-based methods, such as Random Forests or Gradient Boosted Trees, to better model the data's complex relationships and improve predictive accuracy.
 
 ## 5. References 
 
@@ -157,9 +139,9 @@ https://docs.google.com/spreadsheets/d/1sEn3y5obKaQtLnEJNnsmjzddWluIJcmOrhaOsC1w
 
 | Name      | Midterm Contributions |
 |-----------|-------------------------|
-| Aditya Sriram   | M1 Data Visualization, Midterm Report |
-| Soham Pati      | M1 Implementation & Coding, Midterm Report |
-| Blake Alford    | M1 Feature Reduction, Midterm Report |
-| Erik Larson     | M1 Data Cleaning, Midterm Report |
-| Eric Joseph     | M1 Results Evaluation, Midterm Report |
+| Aditya Sriram   | M1 Data Visualization, Midterm Report, github formatting and linear reg model analysis|
+| Soham Pati      | M1 Implementation & Coding, Midterm Report, analysis and writeup, feature processing |
+| Blake Alford    | M1 Feature Reduction, Midterm Report, feature processing and analysis |
+| Erik Larson     | M1 Data Cleaning, Midterm Report, linear reg model, graph creation, quanitative analysis |
+| Eric Joseph     | M1 Results Evaluation, Midterm Report, analysis and writeup, ml model and supervised learning analysis |
 
