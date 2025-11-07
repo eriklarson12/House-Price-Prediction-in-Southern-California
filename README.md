@@ -52,7 +52,9 @@ A simple model that predicts housing prices as a weighted combination of input f
 
 ---
 
-## 4. Potential Results and Discussion 
+## 4. Results and Discussion 
+### Preprocessing Results
+
 
 ### Quantitative Metrics
 
