@@ -72,9 +72,37 @@ We used encoding to turn the qualitative city name category into numerical value
 
 ### Linear Regression Model and Evaluation
 
+![A screenshot of feature_matrix](images/feature_matrix.png)
+
+This shows the last step before evaluation. First, we set up our 7 features (bed, bath, sqft, and our new engineered features) as 'X' and our price column as the 'y' target. The output lists our 7 features: bed, bath, sqft, citi_encoded, sqft_per_room, total_rooms, and bath_to_bed_ratio. We split our 15,474 samples using an 80-20 ratio, which left us with 12,379 samples for training and 3,095 for testing. The last line shows that we successfully trained our Linear Regression model on the training data and we are now ready to evaluate.
+
+![A screenshot of model_coefficients](images/model_coefficients.png)
+
+![A screenshot of model_coefficients graph](images/coefficient_graph.png)
+
+This graph presents the coefficients from our linear regression model, which starts with a baseline intercept of $244,842.70. The model places the strongest negative weight on the bath_to_bed_ratio feature, with a coefficient of -265859.88. In contrast, the bath feature provides the largest positive influence at 104797.24, which is partially offset by the bed feature's negative coefficient of -74488.77. Other features like total_rooms and sqft also contribute positively to the price, though their influence is less impactful.
+
+![A screenshot of metrics data](images/metrics_data.png)
+
+![A screenshot of training predicted data](images/training_vs_test_predicted.png)
+
+This shows our model's predictions (y-axis) against the actual prices (x-axis). The red dashed line shows where a perfect prediction would fall. We can see the blue and green dots form a very wide, scattered cloud instead of a tight line, which visually explains our moderate 0.35 R² score. This spread shows that the model understands the general trend, but its predictions have a high amount of error. The test set plot looks very similar to the training set, which again confirms that our model is consistent and not just memorizing the training data.
+
+![A screenshot of training residual data](images/training_vs_test_residual.png)
+
+These plots show the model's prediction errors (residuals) versus the predicted prices. A clear pattern is visible in both plots: the errors are small and clustered near zero for low predicted prices, but they spread out significantly as the price increases. This pattern visually confirms that the model's accuracy gets worse when predicting more expensive properties. The test set plot shows the same trend, which confirms this is a consistent issue for the model.
+
+![A screenshot of training distribution data](images/training_vs_test_distribution.png)
+
+These histograms show the residual distributions for both the training and test sets. Both distributions are roughly bell-shaped and centered near zero, which is indicated by the red dashed line. This normal distribution of errors is a positive sign, suggesting that the model's errors are random and not biased in one direction. The test set's distribution closely matches the training set, which further reinforces this consistent behavior.
+
+![A screenshot of metrics graphs](images/metrics_graphs.png)
+
+This summarizes the model's performance by comparing the training (blue) and test (green) set metrics. The charts and table show that the performance was highly consistent across both sets. For example, the R² score was 0.353 for training and 0.351 for testing, while the RMSE and MAE values were also very close. This consistency is a good sign because it indicates the model is not overfitting the training data and should perform well on unseen data.
+
 ### Quantitative Metrics
 
-**Supervised Metrics:**
+**Quantitative Metrics:**
 1. **Root Mean Squared Error (RMSE)** [1]: Measures the square root of the average squared difference between predicted and actual prices. RMSE penalizes larger errors more heavily, making it useful for identifying significant mispredictions in housing prices.
 
 
