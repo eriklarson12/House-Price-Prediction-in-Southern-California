@@ -127,11 +127,11 @@ We used encoding to turn the qualitative city name category into numerical value
 
 https://docs.google.com/spreadsheets/d/1sEn3y5obKaQtLnEJNnsmjzddWluIJcmOrhaOsC1w4q8/edit?usp=sharing
 
-| Name      | Proposal Contributions |
+| Name      | Midterm Contributions |
 |-----------|-------------------------|
-| Aditya Sriram   | Problem Definition, GitHub Page  |
-| Soham Pati      | Methods, Dataset, Results |
-| Blake Alford    | Literature Review, Gantt Chart |
-| Erik Larson     | Presentation Creation, Setting up GitHub Page and Repo |
-| Eric Joseph     | Presentation Creation/Recording, Methods |
+| Aditya Sriram   | M1 Data Visualization, Midterm Report |
+| Soham Pati      | M1 Implementation & Coding, Midterm Report |
+| Blake Alford    | M1 Feature Reduction, Midterm Report |
+| Erik Larson     | M1 Data Cleaning, Midterm Report |
+| Eric Joseph     | M1 Results Evaluation, Midterm Report |
 
