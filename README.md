@@ -15,6 +15,11 @@ This document explains the contents and purpose of the key files and directories
     * **Purpose:** Contains the core project assets. This includes:
         * The dataset(s) used for training and testing.
         * The machine learning models (e.g., Jupyter Notebook) that define the model's methods, training, and evaluation.
+          
+   * /midterm_checkpoint/notebooks/: Contains Jupyter notebooks used for data analysis and results.
+   * /midterm_checkpoint/notebooks/ML_House_Price_Prediction.ipynb: Jupyter notebook used for main data analysis.
+   * /midterm_checkpoint/data/: Contains datasets used in the notebook.
+   * /midterm_checkpoint/data/socal2_7_columns.csv: The dataset used in the analysis.
 
 ### Key Files
 
