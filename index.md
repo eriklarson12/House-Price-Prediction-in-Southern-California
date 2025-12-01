@@ -192,7 +192,7 @@ The performance characteristics reveal both strengths and limitations of the mod
 
 Overall, the XGBoost model successfully demonstrates that gradient boosting can substantially improve prediction accuracy for real estate pricing, nearly doubling the explained variance from 35% to 64%. While some overfitting occurred and approximately $234K average prediction error remains, the model represents a significant advancement over linear methods and confirms that machine learning approaches can effectively capture the complex, nonlinear relationships in real estate valuation. The feature importance analysis provides clear insights into price drivers, with bathrooms, location, and square footage emerging as the most critical factors.
 
-## Comparison of Approaches
+### Comparison of Approaches
 
 We saw a clear performance gap between the linear baselines and the gradient boosting model when looking at the metrics. Both Linear and Ridge Regression stalled at an R-squared of approximately 0.35 and an RMSE over 309,000 dollars. This shows that adding regularization in the Ridge model did not solve the fundamental issue, which was that linear equations simply could not capture the complexity of the housing market. In contrast, XGBoost achieved a test R-squared of 0.64 and reduced the RMSE to roughly 230,000 dollars. This represents a 25% reduction in prediction error, confirming that the ensemble method successfully minimized the residual spread where the linear equations failed.
 
