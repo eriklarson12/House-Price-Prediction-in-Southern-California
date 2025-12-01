@@ -1,4 +1,4 @@
-# ML Project Midterm Checkpoint: House Price Prediction in Southern California 
+# ML Project Final: House Price Prediction in Southern California 
 
 ### Group 118  
 **Aditya Sriram, Soham Pati, Blake Alford, Erik Larson, Eric Joseph**
