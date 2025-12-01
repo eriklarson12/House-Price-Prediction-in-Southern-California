@@ -216,10 +216,10 @@ Moving forward, we plan to explore Ridge and Lasso Regression to help reduce mul
 
 https://docs.google.com/spreadsheets/d/1sEn3y5obKaQtLnEJNnsmjzddWluIJcmOrhaOsC1w4q8/edit?usp=sharing
 
-| Name      | Midterm Contributions |
+| Name      | Final Contributions |
 |-----------|-------------------------|
-| Aditya Sriram   | M1 Data Visualization, Midterm Report, github formatting and linear reg model analysis|
-| Soham Pati      | M1 Implementation & Coding, Midterm Report, analysis and writeup, feature processing |
-| Blake Alford    | M1 Feature Reduction, Midterm Report, feature processing and analysis |
-| Erik Larson     | M1 Data Cleaning, Midterm Report, linear reg model, graph creation, quanitative analysis |
-| Eric Joseph     | M1 Results Evaluation, Midterm Report, analysis and writeup, ml model and supervised learning analysis |
+| Aditya Sriram   | M2/3 Data Visualization, Final Report, Github Formatting, Feature Processing, XGBoost analysis |
+| Soham Pati      | M2/3 Implementation & Coding, Final Report, Analysis and Writeup, Ridge Reg Analysis |
+| Blake Alford    | M2/3 Feature Reduction, Final Report, Feature Processing and Analysis, Gantt Chart |
+| Erik Larson     | M2/3 Data Cleaning, Final Report, XGBoost Model Improvement, Graph Creation, Quanitative Analysis |
+| Eric Joseph     | M2/3 Results Evaluation, Final Report, Analysis and Writeup, Model Comparison |
