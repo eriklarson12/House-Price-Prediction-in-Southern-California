@@ -139,6 +139,16 @@ The bath_to_bed_ratio feature gave a large negative coefficient ($-265,859.88), 
 
 Overall, the model provides a clear, interpretable baseline that confirms the linear relationships between home attributes and sale prices. However, the moderate R² score and large residuals strongly suggest that the data contains nonlinear trends and feature interactions that a simple linear model cannot capture. We had hoped for a R score value of 0.7 or higher to suggest linear correlation but since the score did not show that it just means that this model is not the right fit got it.
 
+
+
+
+### Deeper Analysis of Ridge Regression
+
+Ridge Regression, implemented through sklearn.linear_model.Ridge, extends ordinary linear regression by adding an L2 penalty on the magnitude of coefficients. This regularization term penalizes large weights and is useful to stabilize the solution when the dataset contains multicollinearity, or when there are high-dimensional feature spaces. Converting the problem into one that favors smaller coefficients emphasizes more conservative relationships between predictors and the target variable. In exchange for stability and a lack of extreme swings in prediction, it reduces the capability of the model to express complex interactions or nonlinear dynamics. The result is that Ridge tends to yield smoother and more generalizable fits but at a cost in expressiveness.
+
+Applied to the prediction of housing prices-in markets as heterogeneous as Southern California, for instance-this tradeoff becomes pronounced. Housing prices reflect sharp nonlinear effects: neighborhood desirability, school district boundaries, proximity to amenities, local zoning, and micro-geographic variation. Ridge treats all these influences as linear contributions and further dampens their impact via regularization. This leads to systematic compression of predictions: expensive homes are undervalued, cheaper homes overestimated, and the model gravitates toward the overall mean. The resulting predictions capture broad directional trends but fail to reflect the true spread and skewness of real estate markets.
+
+Because Ridge maintains similar performance between training and test sets, its errors reflect a consistent underfitting problem rather than sensitivity to noise or variance. The model is structurally incapable of learning the deeper, intricate relationships necessary for high-fidelity price estimation. In settings where the signal is largely nonlinear and contextual, Ridge serves more as a baseline benchmark for model comparison rather than a viable predictive tool. It underlines the limits of linear regularized methods and points to the need for more flexible algorithms-such as gradient boosting or tree-based ensembles-for targets with complex, high-variance behavior like home prices.
 **XGBoost Model and Evaluation **
 
 
