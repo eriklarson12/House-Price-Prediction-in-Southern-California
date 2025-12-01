@@ -48,7 +48,7 @@ These studies focus on numeric and structural features and rarely use unsupervis
 **Model/Algorithm:** Linear Regression (`sklearn.linear_model.LinearRegression`)  
 A simple model that predicts housing prices as a weighted combination of input features, assuming a linear relationship.
 
-**Ridge Regression (Supervised) Model/Algorithm: sklearn.linear_model.Ridge
+**Ridge Regression (Supervised) Model/Algorithm**: sklearn.linear_model.Ridge
 A linear model that predicts housing prices using a weighted combination of input features while applying L2 regularization. The regularization term shrinks coefficients to reduce overfitting and stabilize the model when features are correlated, but it still assumes a fundamentally linear relationship between predictors and price.
 
 **Gradient Boosting (Supervised) Model/Algorithm** : XGBoost Regressor (xgboost.XGBRegressor)
