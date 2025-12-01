@@ -200,6 +200,8 @@ The main reason for this disparity was how the models handled categorical data a
 
 Despite its superior accuracy, XGBoost introduced tradeoffs regarding interpretability and variance. The linear models offered high transparency, allowing us to explicitly state the dollar value of a feature like a bathroom via coefficients, while XGBoost acts as a black box where we can only rank relative feature importance. Furthermore, the comparison reveals a shift from high bias to high variance. The linear models consistently underfit the data, while XGBoost showed clear signs of overfitting as indicated by the large gap between its 93% training score and 64% test score. Ultimately, however, the drastic reduction in error makes XGBoost the preferred model for this specific problem.
 
+![Model Comparison Table](images/model_comparison_table.png)
+
 **Next Steps**
 
 Moving forward, we plan to explore Ridge and Lasso Regression to help reduce multicollinearity. We will also test tree-based methods, such as Random Forests or Gradient Boosted Trees, to better model the data's complex relationships and improve predictive accuracy.
