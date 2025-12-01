@@ -120,23 +120,23 @@ The scatter plots make the model’s limitations even harder to ignore. Predicti
 
 ### XGBoost Model and Evaluation 
 
-![XGBoost Feature Importance](xgboost_feature_importance_graph.png)
+![XGBoost Feature Importance](images/xgboost_feature_importance_graph.png)
 
 This graph displays the feature importance scores from our XGBoost model, showing which features have the most influence on predicting house prices. The bath feature dominates with an importance score of approximately 0.30, making it by far the most influential predictor. The citi_encoded feature comes in second at around 0.18, followed by sqft at approximately 0.16. The remaining features (total_rooms, sqft_per_room, bath_to_bed_ratio, and bed) have progressively smaller importance scores, all below 0.11. This ranking reveals that the number of bathrooms, location (city), and square footage are the key drivers of price predictions in this model.
 
-![XGBoost Model Evaluation](xgboost_model_evaluation.png)
+![XGBoost Model Evaluation](images/xgboost_model_evaluation.png)
 
 This evaluation summary shows the XGBoost model's performance metrics across training, test, and cross-validation. On the training set, the model achieved an impressive R² score of 0.9305 with an RMSE of $98,903.10 (14.09% of average price). However, the test set shows more realistic performance with an R² of 0.6390 and RMSE of $230,669.31 (32.62% of average price). The 5-fold cross-validation results show a mean CV RMSE of $233,578.76 with a standard deviation of $6,307.47, indicating consistent but moderate performance. The significant gap between training (93% variance explained) and test (64% variance explained) performance suggests some overfitting, though the model still outperforms the linear regression baseline substantially.
 
-![XGBoost Training vs Test Predictions](xgboost_training_vs_test_plot.png)
+![XGBoost Training vs Test Predictions](images/xgboost_training_vs_test_plot.png)
 
 These scatter plots compare predicted prices (y-axis) against actual prices (x-axis) for both training and test sets. The training set (left, purple) shows points tightly clustered along the red dashed "perfect prediction" line, confirming the high R² of 0.9305. In contrast, the test set (right, red) shows considerably more scatter around the perfect prediction line, though still maintaining a clear positive correlation. This visual confirms the R² of 0.6390 and reveals that while the model has learned the training data very well, it has moderate generalization to unseen data. The spread increases at higher price points, indicating the model struggles more with expensive properties.
 
-![XGBoost Training vs Test Residuals](xgboost_test_residuals_plot.png)
+![XGBoost Training vs Test Residuals](images/xgboost_test_residuals_plot.png)
 
 These residual plots show the prediction errors versus predicted prices for both datasets. The training set (left, purple) displays remarkably small and evenly distributed residuals across all price ranges, with most errors clustered very close to the zero line. This tight pattern reflects the model's excellent fit to training data. The test set (right, red) shows a much wider spread of residuals, particularly at higher predicted prices, forming a funnel shape. This heteroscedasticity (increasing variance with price) indicates that prediction accuracy decreases for more expensive properties, which is a common challenge when predicting real estate prices across a wide range.
 
-![XGBoost Feature Importance Text](xgboost_feature_importance_text.png)
+![XGBoost Feature Importance Text](images/xgboost_feature_importance_text.png)
 
 This text output confirms the feature importance rankings from the XGBoost model training. Bath leads with an importance of 0.303893, followed by citi_encoded at 0.178408, and sqft at 0.159875. The engineered features total_rooms (0.104875), sqft_per_room (0.093393), and bath_to_bed_ratio (0.088122) provide moderate contributions, while bed (0.071435) has the lowest importance. These values quantify each feature's contribution to the model's decision-making process and help explain why certain features drive price predictions more than others.
 
