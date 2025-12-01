@@ -103,6 +103,17 @@ These histograms show the residual distributions for both the training and test 
 
 This summarizes the model's performance by comparing the training (blue) and test (green) set metrics. The charts and table show that the performance was highly consistent across both sets. For example, the R² score was 0.353 for training and 0.351 for testing, while the RMSE and MAE values were also very close. This consistency is a good sign because it indicates the model is not overfitting the training data and should perform well on unseen data.
 
+### Ridge Regression Model and Evaluation
+
+![A screenshot of ridge regression results](images/ridge_results.png)
+
+This summarizes the model's performance by providing training and test set metrics. The metrics point to a model that consistently underfits the structure of Southern California housing prices. Errors remain extremely high—RMSE above $300k, over 40% of the typical home price—and the near-identical train and test performance shows that the model isn’t struggling with variance but with limited capacity to capture meaningful relationships. Cross-validation reinforces this, with low spread across folds but equally weak results, indicating stable yet shallow learning. Regularization from Ridge smooths out patterns that, in housing markets, tend to be nonlinear and heavily driven by location-specific factors, so important signals end up muted. Overall, the output reflects a model that captures broad averages but misses the finer-grained dynamics required for practical price prediction in this domain.
+
+
+![A screenshot of ridge regression graph results](images/ridge_imgs.png)
+
+The scatter plots make the model’s limitations even harder to ignore. Predictions cluster tightly in a narrow band, especially for higher-priced homes, which shows that the model collapses a wide range of actual values into similar predicted outputs. Instead of tracking the upward trajectory of real prices, the estimates flatten out and drift toward the mean, a classic sign of heavy regularization suppressing meaningful variation. The wide vertical spread at almost every actual price point reflects substantial error, and the consistent gap between the cloud of points and the perfect-prediction line shows that the model systematically understates expensive homes while overstating cheaper ones. The nearly identical R² values for training and test data, combined with the similar scatter patterns, confirm that this isn’t an overfitting issue; the model simply doesn’t capture enough of the underlying structure to produce accurate or nuanced predictions.
+
 ### Quantitative Metrics
 
 **Root Mean Squared Error (RMSE)**: The RMSE measures the average magnitude of prediction errors in the same units as the target variable (price). Our model produced an RMSE of $309,313.21. This metric is measured in the same units as the target (price), so this gives an average prediction deviation of $309K. This figure represents approximately 43.7% of the average home price in the dataset.
