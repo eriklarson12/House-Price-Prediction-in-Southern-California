@@ -136,7 +136,7 @@ These scatter plots compare predicted prices (y-axis) against actual prices (x-a
 
 These residual plots show the prediction errors versus predicted prices for both datasets. The training set (left, purple) displays remarkably small and evenly distributed residuals across all price ranges, with most errors clustered very close to the zero line. This tight pattern reflects the model's excellent fit to training data. The test set (right, red) shows a much wider spread of residuals, particularly at higher predicted prices, forming a funnel shape. This heteroscedasticity (increasing variance with price) indicates that prediction accuracy decreases for more expensive properties, which is a common challenge when predicting real estate prices across a wide range.
 
-![XGBoost Feature Importance Text](images/xgboost_feature_importance_text.png)
+![XGBoost Feature Importance Text](images/xgboost_training_data.png)
 
 This text output confirms the feature importance rankings from the XGBoost model training. Bath leads with an importance of 0.303893, followed by citi_encoded at 0.178408, and sqft at 0.159875. The engineered features total_rooms (0.104875), sqft_per_room (0.093393), and bath_to_bed_ratio (0.088122) provide moderate contributions, while bed (0.071435) has the lowest importance. These values quantify each feature's contribution to the model's decision-making process and help explain why certain features drive price predictions more than others.
 
@@ -150,6 +150,14 @@ This text output confirms the feature importance rankings from the XGBoost model
 
 
 **R² Score**: The model achieved an R² value of 0.3509, meaning it explains about 35% of the variance in home prices. This is a moderate score because it indicates the model has captured some core linear relationships, but it is not yet accounting for other complex factors, such as nonlinear trends or location-based data, which are missing from the current feature set.
+
+### Quantitative Metrics for XGBoost
+
+**Root Mean Squared Error (RMSE):** The XGBoost model achieved an RMSE of $230,669.31 on the test set, which represents approximately 32.62% of the average home price in the dataset ($707,084.58). This is a substantial improvement over the Linear Regression model's RMSE of $309,313.21 (43.7% of average price), representing a 25% reduction in prediction error. The training RMSE was notably lower at $98,903.10 (14.09% of average price), indicating the model learned the training patterns very effectively.
+
+**Mean Absolute Error (MAE):** The model's test MAE was $144,856.05, meaning the typical absolute error between a prediction and the actual sale price is approximately $145K. This is a significant improvement over the Linear Regression MAE of $228,128.65, representing a 36% reduction in typical prediction errors. The training MAE of $64,924.95 further demonstrates the model's strong fit to training data.
+
+**R² Score:** The XGBoost model achieved an R² value of 0.6390 on the test set, meaning it explains approximately 64% of the variance in home prices. This nearly doubles the explanatory power of the Linear Regression model (35% variance explained) and represents a substantial improvement in predictive capability. The training R² of 0.9305 indicates the model captured 93% of training variance, though the gap between training and test performance suggests some overfitting. The 5-fold cross-validation produced a mean RMSE of $233,578.76 with a standard deviation of $6,307.47, confirming consistent performance across different data splits.
 
 ### Deeper Analysis of Linear Regression
 
@@ -174,6 +182,15 @@ Applied to the prediction of housing prices-in markets as heterogeneous as South
 Because Ridge maintains similar performance between training and test sets, its errors reflect a consistent underfitting problem rather than sensitivity to noise or variance. The model is structurally incapable of learning the deeper, intricate relationships necessary for high-fidelity price estimation. In settings where the signal is largely nonlinear and contextual, Ridge serves more as a baseline benchmark for model comparison rather than a viable predictive tool. It underlines the limits of linear regularized methods and points to the need for more flexible algorithms-such as gradient boosting or tree-based ensembles-for targets with complex, high-variance behavior like home prices.
 
 
+
+
+### Deeper Analysis of XGBoost
+
+Our XGBoost model utilized the same seven features as the Linear Regression baseline but revealed dramatically different patterns through its gradient boosting approach. The bath feature emerged as the dominant predictor with an importance score of 30%, followed by citi_encoded at 18% and sqft at 16%. This differs significantly from the linear model, where the tree-based structure allowed XGBoost to capture nonlinear relationships and complex location-specific pricing patterns. The engineered features (total_rooms, sqft_per_room, and bath_to_bed_ratio) collectively contributed about 29% to predictions, and unlike the linear model where multicollinearity caused issues, XGBoost successfully leveraged these correlated features without confusion.
+
+The performance characteristics reveal both strengths and limitations of the model. The significant gap between training R² (0.93) and test R² (0.64) indicates overfitting, where the model learned training patterns too well and captured some noise. The residual plots show that prediction errors increase substantially for expensive properties, forming a funnel pattern that suggests the model struggles with high-end homes where unmeasured factors like luxury amenities, views, and architectural significance become more important. Despite these limitations, the test performance still substantially exceeds the Linear Regression baseline, validating the choice of a more complex model.
+
+Overall, the XGBoost model successfully demonstrates that gradient boosting can substantially improve prediction accuracy for real estate pricing, nearly doubling the explained variance from 35% to 64%. While some overfitting occurred and approximately $234K average prediction error remains, the model represents a significant advancement over linear methods and confirms that machine learning approaches can effectively capture the complex, nonlinear relationships in real estate valuation. The feature importance analysis provides clear insights into price drivers, with bathrooms, location, and square footage emerging as the most critical factors.
 
 
 **Next Steps**
