@@ -204,7 +204,9 @@ Despite its superior accuracy, XGBoost introduced tradeoffs regarding interpreta
 
 **Next Steps**
 
-Moving forward, we plan to explore Ridge and Lasso Regression to help reduce multicollinearity. We will also test tree-based methods, such as Random Forests or Gradient Boosted Trees, to better model the data's complex relationships and improve predictive accuracy.
+Moving forward, we plan to continue improving our models in several ways. We will explore Ridge and Lasso Regression to reduce multicollinearity, and test tree-based methods such as Random Forests, Gradient Boosted Trees, and CatBoost to try and capture the complex relationships better and improve our prediction accuracy. We also want to try a log transform of home prices in our preprocessing, which would reduce the impact of high-end outliers and hopefully make the distribution more symmetric. This would help our models fit cleaner patterns and improve our metrics. We could also try KNN regression as a diagnostic to see if there’s meaningful local structure in the feature space that our current models aren’t currently capturing.
+
+Overall, these steps aim to refine feature handling, enhance model stability, and improve generalization for more accurate predictions.
 
 ## 5. References 
 
