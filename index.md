@@ -47,6 +47,9 @@ These studies focus on numeric and structural features and rarely use unsupervis
 **Model/Algorithm:** Linear Regression (`sklearn.linear_model.LinearRegression`)  
 A simple model that predicts housing prices as a weighted combination of input features, assuming a linear relationship.
 
+**Gradient Boosting (Supervised) Model/Algorithm** : XGBoost Regressor (xgboost.XGBRegressor)
+A gradient boosting model that builds trees sequentially to correct previous errors, often achieving high accuracy on structured data.
+
 
 
 
@@ -120,6 +123,10 @@ The bath_to_bed_ratio feature gave a large negative coefficient ($-265,859.88), 
 
 
 Overall, the model provides a clear, interpretable baseline that confirms the linear relationships between home attributes and sale prices. However, the moderate R² score and large residuals strongly suggest that the data contains nonlinear trends and feature interactions that a simple linear model cannot capture. We had hoped for a R score value of 0.7 or higher to suggest linear correlation but since the score did not show that it just means that this model is not the right fit got it.
+
+**XGBoost Model and Evaluation **
+
+
 
 **Next Steps**
 
