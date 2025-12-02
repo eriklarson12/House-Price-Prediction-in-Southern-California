@@ -8,18 +8,22 @@ This document explains the contents and purpose of the key files and directories
 
 ### Directories
 
+* **/data**
+   * **Purpose:** Contains the dataset used in the notebook.  
+   * /data/socal2_7_columns.csv: The dataset used in the analysis.
+
 * **/images**
     * **Purpose:** Contains all static images, charts, and plots that are used in the project report.
 
 * **/midterm_checkpoint**
-    * **Purpose:** Contains the core project assets. This includes:
-        * The dataset(s) used for training and testing.
-        * The machine learning models (e.g., Jupyter Notebook) that define the model's methods, training, and evaluation.
-          
-   * /midterm_checkpoint/notebooks/: Contains Jupyter notebooks used for data analysis and results.
-   * /midterm_checkpoint/notebooks/ML_House_Price_Prediction.ipynb: Jupyter notebook used for main data analysis.
-   * /midterm_checkpoint/data/: Contains datasets used in the notebook.
-   * /midterm_checkpoint/data/socal2_7_columns.csv: The dataset used in the analysis.
+   * **Purpose:** Contains the core project assets up to the midterm checkpoint.          
+   * /midterm_checkpoint/notebooks/: Contains the Jupyter notebook used for the Linear Regression model's training and evaluation.
+   * /midterm_checkpoint/notebooks/ML_House_Price_Prediction_midterm.ipynb: Jupyter notebook used for main data analysis.
+ 
+* **/final_checkpoint**
+   * **Purpose:** Contains the core project assets up to the final checkpoint.
+   * /final_checkpoint/notebooks/: Contains Jupyter notebooks used for the Linear Regression, Ridge Regression, and XGBoost model's training and evaluation.
+   * /final_checkpoint/notebooks/ML_House_Price_Prediction_final.ipynb: Jupyter notebook used for main data analysis.
 
 ### Key Files
 
