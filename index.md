@@ -37,8 +37,8 @@ These studies focus on numeric and structural features and rarely use unsupervis
 ### Data Preprocessing 
 
 1. **Missing value imputation:** sklearn.impute.SimpleImputer(strategy="median") for numeric, SimpleImputer(strategy="most_frequent") for categorical. This will ensure that data that is missing values or data that is skewed is not lost.
-2. **Feature Engineering:** We can add features for half baths, and also for other important metrics like price per square foot, sqaure foot per room, etc. This will also allow us to convert our data so it more sense and can be understood better.
-3. **Categorical encoding:** sklearn.preprocessing.OneHotEncoder(handle_unknown='ignore'). For features which are categorical(city, etc.) we will transform it into a numerical representation. This will alow for models like linear regression to treat cities like different entities without a ranking or order.
+2. **Feature Engineering:** We can add features for half baths, and also for other important metrics like price per square foot, square foot per room, etc. This will also allow us to convert our data so it makes more sense and can be understood better.
+3. **Categorical encoding:** sklearn.preprocessing.OneHotEncoder(handle_unknown='ignore'). For features which are categorical(city, etc.) we will transform it into a numerical representation. This will allow for models like linear regression to treat cities like different entities without a ranking or order.
 4. **Pipelining:** sklearn.pipeline.Pipeline to combine transforms + models for reproducibility and grid search. We can chain together the above preprocessing steps into one pipeline for easy accessibility and convenient runs.
 
 ### Machine Learning Models 
@@ -63,11 +63,11 @@ A gradient boosting model that builds trees sequentially to correct previous err
 ### Preprocessing Results
 ![A plot showing Imputation](images/imputation.png)
 
-We used **imputation** as our first preprocessing method. Essentially what we did was, for features that were missing for entries, we took the median of the values for that feature and imputed. In the case above as you can see, our dataset was great, and had no missing values.
+We used **imputation** as our first preprocessing method. Essentially what we did was, for features that were missing for entries, we took the median of the values for that feature and imputed. In the case above as you can see, our dataset was complete, with no missing values.
 
 ![A screenshot of feature engineering](images/feature_engineering.png)
 
-The screenshot above shows what we did for feature engineering. We created four features: price per square foot, square foot per room, total rooms, and bath to bed ratio. To derive price_per_sqft, we took the existing price feature and divided the sqft feature for each entry. For sqft_per_room, we took square foot of each property, divided by each bedroom. One notable thing we did: if a property had 0 bedrooms, we replaced the denominator with 1, avoiding DivideByZero error. Total rooms feature is just the summation of rooms and bathrooms.Bath to bed ratio is self explanatory.
+The screenshot above shows what we did for feature engineering. We created four features: price per square foot, square foot per room, total rooms, and bath to bed ratio. To derive price_per_sqft, we took the existing price feature and divided the sqft feature for each entry. For sqft_per_room, we took square foot of each property, divided by each bedroom. One notable thing we did: if a property had 0 bedrooms, we replaced the denominator with 1, avoiding DivideByZero error. Total rooms feature is just the summation of rooms and bathrooms. Bath to bed ratio is self explanatory.
 
 ![A screenshot of outlier removal](images/outlier.png)
 
@@ -170,13 +170,13 @@ This text output confirms the feature importance rankings from the XGBoost model
 ### Deeper Analysis of Linear Regression
 
 
-Our Linear Regression model was built using seven features: sqft_living, bedrooms, bathrooms, city, sqft_per_room, total_rooms, and bath_to_bed_ratio. As expected, square footage showed the strongest positive correlation with price, confirming that larger homes command higher prices. The city feature was also a significant driver, highlighting strong regional differences in value.
+Our Linear Regression model was built using seven features: sqft, bed, bath, citi_encoded, sqft_per_room, total_rooms, and bath_to_bed_ratio. As expected, square footage showed the strongest positive correlation with price at r = 0.58, confirming that larger homes command higher prices. The encoded city feature, by contrast, correlates with price at only r = 0.05. Label encoding assigns each of the 415 cities an arbitrary integer ID, so the model reads those IDs as an ordered scale and cannot recover the regional differences that clearly exist in the market.
 
 
 The bath_to_bed_ratio feature gave a large negative coefficient ($-265,859.88), which at first seems counterintuitive, as more bathrooms typically add value. This result is explained by multicollinearity between the ratio and the individual bedroom and bathroom counts. When those features are held constant, an increase in the ratio often reflects fewer bedrooms rather than more bathrooms, leading to the lower predicted price.
 
 
-Overall, the model provides a clear, interpretable baseline that confirms the linear relationships between home attributes and sale prices. However, the moderate R² score and large residuals strongly suggest that the data contains nonlinear trends and feature interactions that a simple linear model cannot capture. We had hoped for a R score value of 0.7 or higher to suggest linear correlation but since the score did not show that it just means that this model is not the right fit got it.
+Overall, the model provides a clear, interpretable baseline that confirms the linear relationships between home attributes and sale prices. However, the moderate R² score and large residuals strongly suggest that the data contains nonlinear trends and feature interactions that a simple linear model cannot capture. We had targeted an R² of 0.7 or higher; falling well short of that mark indicates that a purely linear model is the wrong fit for this data.
 
 
 
@@ -212,7 +212,7 @@ Despite its superior accuracy, XGBoost introduced tradeoffs regarding interpreta
 
 ### Next Steps
 
-Moving forward, we plan to continue improving our models in several ways. We will explore Ridge and Lasso Regression to reduce multicollinearity, and test tree-based methods such as Random Forests, Gradient Boosted Trees, and CatBoost to try and capture the complex relationships better and improve our prediction accuracy. We also want to try a log transform of home prices in our preprocessing, which would reduce the impact of high-end outliers and hopefully make the distribution more symmetric. This would help our models fit cleaner patterns and improve our metrics. We could also try KNN regression as a diagnostic to see if there’s meaningful local structure in the feature space that our current models aren’t currently capturing.
+Several directions remain open. One hot encoding the city column would remove the false ordering that label encoding imposes on 415 arbitrary integer IDs, which is the most likely reason the linear models stalled at an R² of 0.35. A hyperparameter search over XGBoost would address the gap between its 0.93 training score and its 0.64 test score, since the current parameters were set by hand and never tuned. Lasso regression would add feature selection on top of the regularization Ridge already provided, and tree ensembles such as Random Forests or CatBoost would give a second opinion on the nonlinear structure XGBoost found. We also want to try a log transform of home prices in our preprocessing, which would reduce the impact of high-end outliers and make the target distribution more symmetric. KNN regression would serve as a diagnostic for whether there is meaningful local structure in the feature space that our current models are not capturing.
 
 Overall, these steps aim to refine feature handling, enhance model stability, and improve generalization for more accurate predictions.
 
@@ -233,5 +233,5 @@ https://docs.google.com/spreadsheets/d/1sEn3y5obKaQtLnEJNnsmjzddWluIJcmOrhaOsC1w
 | Aditya Sriram   | M2/3 Data Visualization, Final Report, Github Formatting, Feature Processing, XGBoost analysis |
 | Soham Pati      | M2/3 Implementation & Coding, Final Report, Analysis and Writeup, Ridge Reg Analysis |
 | Blake Alford    | M2/3 Feature Reduction, Final Report, Feature Processing and Analysis, Gantt Chart |
-| Erik Larson     | M2/3 Data Cleaning, Final Report, XGBoost Model Improvement, Graph Creation, Quanitative Analysis |
+| Erik Larson     | M2/3 Data Cleaning, Final Report, XGBoost Model Improvement, Graph Creation, Quantitative Analysis |
 | Eric Joseph     | M2/3 Results Evaluation, Final Report, Analysis and Writeup, Model Comparison |
